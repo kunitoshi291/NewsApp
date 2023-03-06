@@ -1,24 +1,24 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Image, View, Text } from 'react-native';
+import {ListItem}from './components/ListItem';
+import articles from './dummies/articles';
 
 export default function App() {
-  const sampleText = " I love Nature.I love Nature.I love Nature.I love Nature.I love Nature.I love Nature.I love Nature.I love Nature."
+  const items = articles.map((article, index) => {
+    return(
+      <ListItem 
+        imageUrl = {article.urlToImage}
+        title = {article.title}
+        author = {article.author}
+        key = {index.toString()}
+       />
+    )
+    }
+  );
+
   return (
     <View style={styles.container}>
-      <View style={styles.itemContainer}>
-        <View style={styles.leftContainer}>
-          <Image 
-            style={{ width: 100, height: 100 }}
-            source={{ uri: "https://picsum.photos/id/10/300/300" }}
-          />
-        </View>
-        <View style={styles.rightContainer}>
-          <Text numberOfLines={2} style={styles.Text}>
-            {sampleText}
-          </Text>
-          <Text style={styles.subText}>ReactNews</Text>
-        </View>
-      </View>
+     {items}
       <StatusBar style="auto" />
     </View>
   );
