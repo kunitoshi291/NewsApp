@@ -1,19 +1,20 @@
-import { StyleSheet, Image, View, Text } from 'react-native';
+import { StyleSheet, Image, View, Text, TouchableOpacity } from 'react-native';
 
-/** 
+/**
 * @param {
 * imageUrl: 画像URL(string)
 * title: タイトル(string)
 * author: ニュース提供元(string)
+* onPress: タップされたときのイベント
 *} props
 *@returns
 */
 export const  ListItem = (props) => {
   const sampleText = " I love Nature.I love Nature.I love Nature.I love Nature.I love Nature.I love Nature.I love Nature.I love Nature."
   return (
-      <View style={styles.itemContainer}>
+      <TouchableOpacity style={styles.itemContainer} onPress={props.onPress}>
         <View style={styles.leftContainer}>
-          <Image 
+          <Image
             style={{ width: 100, height: 100 }}
             source={{ uri: props.imgageUrl }}
           />
@@ -24,7 +25,7 @@ export const  ListItem = (props) => {
           </Text>
           <Text style={styles.subText}>{props.author}</Text>
         </View>
-      </View>
+      </TouchableOpacity>
   );
 }
 
@@ -44,7 +45,7 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 10,
     justifyContent: "space-between",
-  }, 
+  },
   text: {
     fontSize: 16,
   },
