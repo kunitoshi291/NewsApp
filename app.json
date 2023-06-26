@@ -28,6 +28,8 @@
     },
     "extra": {
       "newsApiKey": "af9f5abbe1b34b1e99819985178fdd48"
-    }
-  }
+    },
+    "sdkVersion": "48.0.0"
+  },
+  "name": "news-app"
 }
